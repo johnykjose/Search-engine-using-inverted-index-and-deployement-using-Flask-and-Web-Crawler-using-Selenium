@@ -1,0 +1,100 @@
+<centre>
+<form action="{{ url_for('predict')}}" method="POST" align="center">
+<img src="/static/cov1.png" alt="Coventry Uni">
+    <div class="container">
+            <input id="search" name="search" required="required"  placeholder="Enter your keyword here">
+            <button id="sub" type="submit " class="registerbtn">Search</button><br>
+            {{input_str}}
+            <br>
+            {{total}}
+            <hr style="border: 2px solid #f1f1f1;margin-bottom: -20px;">
+    </div>
+</form>
+<h3 style="color: Blue"><h3>
+</centre>
+
+<table>
+  {% for r in result %}
+  <tr>
+      <table style="text-align: left;">
+        <tr>
+            <th style="text-align: left;"><a href={{r['link']}}>{{r['title']}}</a></th>
+        </tr>
+        <tr>
+            <td><b>Field:</b>{{r['class']}}</td>
+        </tr>
+        <tr>
+            <td><b>Authors:</b>{{r['auth']}}</td>
+        </tr>
+      </table>
+  </tr> 
+  <hr style="border: 1px solid #f1f1f1;">
+  {% endfor %}
+</table>
+
+
+
+<style>
+
+img {
+
+  margin: 0px 0 0px 0;
+ 
+}
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 7px;
+}
+
+/* Full-width input fields */
+input {
+  width: 70%;
+  padding: 7px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  text-align: center;
+  margin: 8px 0;
+}
+
+input:focus {
+  background-color: #ddd;
+  outline: none;
+  
+}
+
+/* Overwrite default styles of hr */
+/*
+hr {
+  border: 2px solid #f1f1f1;
+  margin-bottom: -5px;
+}
+*/
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links 
+a {
+  color: dodgerblue;
+}
+*/
+
+</style>
