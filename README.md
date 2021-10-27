@@ -4,7 +4,7 @@
 A vertical search engine using inverted index to retrieve research papers based on the search strings. 
 Part 1 – Search engine
 The search engine has been deployed as a Flask application with a user interface for the user to interact with the search engine. This is a fully automated application and manual intervention is not needed once it started. Complete backed applications are developed in Python and front end with Flask, html and CSS.
-1.	Crawler
+**1.	Crawler**
 
 The web crawler is capable of identifying all the profiles of Coventry University Faculties in Google Scholar and every papers published by them in a BFS manner. The main component of my web crawler is a Selenium driver which can go through every pages by identifying the JavaScript buttons (e.g. Next, Show more) in Google scholar and crawl through. Beautiful Soup library is used to extract relevant details from the html pages. 
 
@@ -45,7 +45,7 @@ Note that the web crawler and data extractions happens in BFS manner. Selenium d
  
 The number of papers found and completion status after fetching it will also be displayed. The final data with all the crawled data will be stored to a CSV file to be consumed by the indexer.
 	       
-2.	Indexer
+**2.	Indexer**
 2.1	Index architecture and data structure used
 An index is created to be used by the query engine. Inverted index is the data structure used and it is a dictionary of nested dictionaries. The structure of Inverted index is given below
  
@@ -73,17 +73,11 @@ Step 3: indexer() method is called for all pre-processed data to add it to the i
 Step 4: The inverted index is exported into a pickle files to store it permanently
 Step 5: Update the settings.csv file to notify the Flask app to reload the new index into it.
 
-3.	Query processor
+**3.	Query processor**
 3.1	Query type
 User can input the search query in the Flask web app. And after all the pre-pre-processing steps it will be passed to application engine to process further. This search engine can accept keywords like Google does (without any need for AND, OR, NOT etc.). All the results will be displayed in the web application in the order of its relevance to the query
 3.2	Ranking the results
 TF-IDF is used as the scoring mechanism. Score will be calculated for every documents against the search query
-3.3	Results
-Initial screen to the user to input query
- 
-
-
-Displaying the results to user for the query “artificial intelligence and copyright protection of digital music”
  
 
 
